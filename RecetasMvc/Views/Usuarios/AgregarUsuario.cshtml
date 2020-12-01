@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "AgregarUsuario";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<object id="header" data="header.html" onload="resizeObj(this);"></object>
+
+<div style="width:20%; position:relative">
+
+</div>
+
+<div>
+    <h2>Agregar Usuario</h2>
+    <form id="formulario">
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label>Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            </div>
+            <div class="form-col-md-2">
+                <label>Apellido</label>
+                <input type="text" class="form-control" id="apellido">
+            </div>
+            <div class="form-group col-md-3">
+                <label>Genero</label>
+                <select class="form-group col-md-3" id="genero">
+
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Correo</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group col-md-3">
+                <label>Rol</label>
+                <select class="form-group col-md-3" id="rol">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Cliente">Cliente</option>
+                </select>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Ver";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var Receta = (List<RecetaSpawn.Domain.BO.TblReceta>)ViewBag.RecetaList;
+}
+
+<h2>Ver</h2>
+
+@if (Receta.Count > 0)
+{
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Receta</th>
+                            <th scope="col">Tiempo</th>
+                            <th scope="col">Ingredientes</th>
+                            <th scope="col">Preparacion</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (RecetaSpawn.Domain.BO.TblReceta item in Receta)
+                        {
+                        <tr>
+                            <td>@item.ID_RECETA</td>
+                            <td>@item.RECETA</td>
+                            <td>@item.TIEMPO</td>
+                            <td>@item.INGREDIENTES</td>
+                            <td>@item.PREPARACION</td>
+
+
+                            <td align="center">
+                            </td>
+                        </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h2>tabla Vacia</h2>
+
+}
