@@ -31,10 +31,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
 
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="~/Views/Admin/AdminView.cshtml">Agenda</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#Publicar">Publicar</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" @Html.ActionLink("Iniciar Sesion", "Login", "Acceso")</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" @Html.ActionLink("Prueba", "AdminView", "Admin")</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="~/Views/Admin/AdminView.cshtml">Agenda</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#Publicar">Publicar</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" @Html.ActionLink("Iniciar Sesion", "Login", "Acceso")</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" @Html.ActionLink("Prueba", "AdminView", "Admin")</a></li>
                 </ul>
             </div>
         </div>
@@ -210,7 +210,12 @@
     <script src="~/Content/jquery/dist/jquery.min.js"></script>
     <script src="~/Content/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~" asp-append-version="true"></script>
-    
+
+    <script>
+        var Root = "@Url.Content("~/")";
+    </script>
+    <script src="~/Content/Dialog/Dialog.js"></script>
+
     <link href="~/css/styles.css" rel="stylesheet" />
     <script src="~/Content/js/scripts.js"></script>
     @RenderSection("Scripts", required: false)

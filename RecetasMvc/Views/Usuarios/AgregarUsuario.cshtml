@@ -11,43 +11,57 @@
 
 <div>
     <h2>Agregar Usuario</h2>
-    <form id="formulario">
-        <div class="form-row">
-            <div class="form-group col-md-5">
+    <form id="formulario" method="post">
+
+        <div class="form-row ">
+            <div class="form-group col-md-4">
                 <label>Nombre</label>
                 <input type="text" class="form-control" id="nombre" placeholder="Nombre">
             </div>
-            <div class="form-col-md-2">
+            <div class="form-col-md-4">
                 <label>Apellido</label>
                 <input type="text" class="form-control" id="apellido">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label>Genero</label>
-                <select class="form-group col-md-3" id="genero">
-
+                <select class="form-group form-control" id="genero">
                     <option value="M">Masculino</option>
                     <option value="F">Femenino</option>
                 </select>
             </div>
         </div>
+
         <div class="form-row">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Correo</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="form-group col-md-4">
+                <label >Correo</label>
+                <input type="email" class="form-control" id="correo"  placeholder="Enter email">
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <div class="form-group col-md-4">
+                <label >Password</label>
+                <input type="password" class="form-control" id="contraseña" placeholder="Password">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label>Rol</label>
-                <select class="form-group col-md-3" id="rol">
+                <select class="form-group form-control" id="rol">
                     <option value="Administrador">Administrador</option>
                     <option value="Cliente">Cliente</option>
                 </select>
             </div>
+
+        </div>
+        <div class="form-row">
+            <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Guardar</button>
         </div>
     </form>
 
 </div>
+
+<script src="~/Scripts/Usuario.js"></script>
+<script>
+    $(function () {
+        Usuario.init();
+    });
+</script>
+
+
+

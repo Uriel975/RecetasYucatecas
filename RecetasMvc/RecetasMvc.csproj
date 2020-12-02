@@ -237,6 +237,9 @@
     <Content Include="Content\csslogin\main.css" />
     <Content Include="Content\csslogin\util.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\Dialog\Dialog-ie.css" />
+    <Content Include="Content\Dialog\Dialog.css" />
+    <Content Include="Content\Dialog\Dialog.js" />
     <Content Include="Content\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Content\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />

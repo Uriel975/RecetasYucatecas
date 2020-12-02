@@ -12,24 +12,37 @@ namespace RecetaSpawn.Domain.DAO.Tests
     [TestClass()]
     public class TblUsuarioDAOTests
     {
-        //quien llama? xD
+        
 
-        [TestMethod()] //ureil
+        [TestMethod()] //uriel
         public void Agregar_LlenandoTodosLosCampos()
+        {
+            TblUsuariosBO data = new TblUsuariosBO(); // y que se usara el tblUsuario 
+            TblUsuarioDAO metodo = new TblUsuarioDAO(); // Es el metodo que raliza la consulta ala BD
+
+            bool res;// se declara una variable de tipo boleana. Las cuales son V y F 
+
+            data.Nombre = "Felipe"; // se estan asignando valores a "Nombre"
+            data.Apellido = "Carrillo P";
+            data.Correo = "felipe@gmail.com";
+            data.Contraseña = "123";
+            data.Genero = "Hombre";
+            data.Rol = "Usuario";
+
+            res = metodo.Agregar(data); // Recibe el resultado del metodo "agregar" y los resultados se le pasan a "res"
+
+            Assert.IsTrue(res); // Es el valor esperado que sera True
+        }
+
+        [TestMethod()]
+        public void Eliminar_datos()
         {
             TblUsuariosBO data = new TblUsuariosBO();
             TblUsuarioDAO metodo = new TblUsuarioDAO();
 
             bool res;
-
-            data.Nombre = "Usuario";
-            data.Apellido = "Apellido";
-            data.Correo = "usuario@gmail.com";
-            data.Contraseña = "123";
-            data.Genero = "Hombre";
-            data.Rol = "Usuario";
-
-            res = metodo.Agregar(data);
+            data.IDUsuario = 9;
+            res = metodo.Eliminar(data);
 
             Assert.IsTrue(res);
         }
@@ -54,18 +67,7 @@ namespace RecetaSpawn.Domain.DAO.Tests
             Assert.IsTrue(res);
         }
 
-        [TestMethod()]
-        public void Eliminar_datos()
-        {
-            TblUsuariosBO data = new TblUsuariosBO();
-            TblUsuarioDAO metodo = new TblUsuarioDAO();
 
-            bool res;
-            data.IDUsuario = 9;
-            res = metodo.Eliminar(data);
-
-            Assert.IsTrue(res);
-        }
 
         [TestMethod()]
         public void Buscar_Usuario()

@@ -1,55 +1,51 @@
-﻿var Administrador = {
+﻿var Usuario = {
     Objects: {
         IDUsuario: 0
     },
     init: function () {
-        $("#formCreate").on("submit", function (e) {
+        $("#formulario").on("submit", function (e) {
             e.preventDefault()
 
-            var A_NAMEADM = $("txtNombreUsu").val();
-            var A_EMAIL = $("#txtCorreoUsu").val();
-            var A_UNAME = $("#txtUsuarioAdm").val();
+            var Nombre = $("#nombre").val();
+            var Apellido = $("#apellido").val();
+            var Genero = $("#genero").val();
+            var Correo = $("#correo").val();
+            var Contraseña = $("#contraseña").val();
 
-            if (Administrador.Objects.IDAdministrador == 0) {
-                var A_PFNAME = $("#txtApellidoPAdm").val();
-                var A_PMNAME = $("#txtApellidoMAdm").val();
-                var A_PREPASS = $("#txtPreContraseñaAdm").val();
-                var A_PASS = $("#txtContraseñaAdm").val();
+            if (Usuario.Objects.IDUsuario == 0) {
+                var Rol = $("#rol").val();
 
-                if (A_NAMEADM.trim() == "") {
+                if (Nombre.trim() == "") {
                     Dialog.show("El campo 'Nombre' es obligatorio", Dialog.type.error);
                     return;
                 }
-                if (A_PFNAME.trim() == "") {
-                    Dialog.show("El campo 'Apellido paterno' es obligatorio", Dialog.type.error);
+                if (Apellido.trim() == "") {
+                    Dialog.show("El campo 'Apellido' es obligatorio", Dialog.type.error);
                     return;
                 }
-                if (A_PMNAME.trim() == "") {
-                    Dialog.show("El campo 'Apellido materno es obligatorio' es obligatorio", Dialog.type.error);
+                if (Genero.trim() == "") {
+                    Dialog.show("El campo 'Genero' es obligatorio", Dialog.type.error);
                     return;
                 }
-                if (A_EMAIL.trim() == "") {
-                    Dialog.show("El campo 'Correo electronico' es obligatorio", Dialog.type.error);
+                if (Correo.trim() == "") {
+                    Dialog.show("El campo 'Correo' es obligatorio", Dialog.type.error);
                     return;
                 }
-                if (A_UNAME.trim() == "") {
-                    Dialog.show("El campo 'Usuario' es obligatorio", Dialog.type.error);
-                    return;
-                }
-                if (A_PREPASS.trim() == "") {
+                if (Contraseña.trim() == "") {
                     Dialog.show("El campo 'Contraseña' es obligatorio", Dialog.type.error);
                     return;
                 }
-                if (A_PREPASS.trim() != A_PASS.trim()) {
-                    Dialog.show("La contraseña no coincide", Dialog.type.error);
+                if (Rol.trim() == "") {
+                    Dialog.show("El campo 'Rol' es obligatorio", Dialog.type.error);
                     return;
                 }
+                /* [O-O] */
                 $.ajax({
-                    url: Root + "Administrador/New",
+                    url: Root + "Usuarios/New",
                     type: "POST",
-                    data: { nombre: A_NAMEADM, apellidop: A_PFNAME, apellidom: A_PMNAME, correo: A_EMAIL, contraseña: A_PREPASS, usuario: A_UNAME },
+                    data: { nombre: Nombre, apellido: Apellido, genero: Genero, correo: Correo, contraseña: Contraseña, rol: Rol },
                     beforeSend: function () {
-                        Dialog.show("Guardando datos", Dialog.type.progress);
+                        Dialog.show("Enviando Datos...", Dialog.type.progress);
                     },
                     success: function (response) {
                         if (response > 0) {
