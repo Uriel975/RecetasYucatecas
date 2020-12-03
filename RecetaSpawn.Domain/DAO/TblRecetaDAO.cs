@@ -39,7 +39,6 @@ namespace RecetaSpawn.Domain.DAO
 			return lista;
 		}
 
-
 		public int Eliminar(int id, int status)
 		{
 			cmd.Connection = con2.establecerconexion();

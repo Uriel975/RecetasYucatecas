@@ -52,7 +52,6 @@
                             Dialog.show("Nuevo Usuario Creado Con Exito", Dialog.type.success);
                             $(".sem-dialog").on("done", function () {
                                 location.reload(true);
-
                             });
                         }
                         else {

@@ -18,6 +18,7 @@ namespace RecetaSpawn.Domain.Service
 			data = metodo.ListarTablaReceta();
 			return data;
         }
+
 		public int Baja(int id, int status)
 		{
 			int resultado = 0;

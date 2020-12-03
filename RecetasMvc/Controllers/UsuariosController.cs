@@ -13,14 +13,16 @@ namespace RecetasMvc.Controllers
     {
         TblUsuarioCTRL Total = new TblUsuarioCTRL();
         // GET: Usuarios
-        public ActionResult Index()
+        public ActionResult Ver()
         {
+            ViewBag.UsuarioLista = Total.Traer();
             return View();
         }
         public ActionResult AgregarUsuario()
         {
             return View();
         }
+
         public int New()
         {
             TblUsuariosBO Actualizacion = new TblUsuariosBO();

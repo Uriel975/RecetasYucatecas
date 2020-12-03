@@ -5,23 +5,25 @@
     var Receta = (List<RecetaSpawn.Domain.BO.TblReceta>)ViewBag.RecetaList;
 }
 
-<h2>Ver</h2>
 
 @if (Receta.Count > 0)
 {
     <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Datos de los receta</h6>
+        </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
-                    <thead>
+                <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                    <thead class="thead-dark">
 
-                        <tr>
-                            <th scope="col">ID</th>
+                        <tr align="center">
+                            <th scope="col" style="display:none"></th>
                             <th scope="col">Receta</th>
                             <th scope="col">Tiempo</th>
                             <th scope="col">Ingredientes</th>
                             <th scope="col">Preparacion</th>
-
+                            <th scope="col">Opcion</th>
                         </tr>
 
                     </thead>
@@ -30,17 +32,18 @@
 
                         @foreach (RecetaSpawn.Domain.BO.TblReceta item in Receta)
                         {
-                        <tr>
-                            <td>@item.ID_RECETA</td>
-                            <td>@item.RECETA</td>
-                            <td>@item.TIEMPO</td>
-                            <td>@item.INGREDIENTES</td>
-                            <td>@item.PREPARACION</td>
-
-
-                            <td align="center">
-                            </td>
-                        </tr>
+                            <tr>
+                                <td style="display:none">@item.ID_RECETA</td>
+                                <td>@item.RECETA</td>
+                                <td>@item.TIEMPO</td>
+                                <td>@item.INGREDIENTES</td>
+                                <td>@item.PREPARACION</td>
+                                @*No hare lo que habia pensando no se porque fallo*@
+                                <td align="center">
+                                    <button type="button" class="btn btn-warning btn-sm">Editar</button>
+                                    <button type="button" class="btn btn-danger btn-circle btn-sm">Eliminar</button>
+                                </td>
+                            </tr>
 
                         }
 

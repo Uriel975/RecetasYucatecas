@@ -88,9 +88,9 @@ namespace RecetaSpawn.Domain.DAO
 		}
 
 		//List<TblEmpleadoBO>
-		public bool BuscarUsuarios()
+
+		public List<TblUsuariosBO> BuscarUsuarios()
 		{
-			bool res=false;
 			List<TblUsuariosBO> lista = new List<TblUsuariosBO>();
 			sql = "SELECT * FROM TblUsuarios";
 			SqlDataAdapter da = new SqlDataAdapter(sql, con2.establecerconexion());
@@ -109,13 +109,9 @@ namespace RecetaSpawn.Domain.DAO
 					obj.Genero = row["Genero"].ToString();
 					obj.Rol = row["Rol"].ToString();
 					lista.Add(obj);
-					res = true;
 				}
 			}
-			else
-				res = false;
-			return res;
-
+			return lista;
 		}
 
 

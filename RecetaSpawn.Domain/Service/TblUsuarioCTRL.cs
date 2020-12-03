@@ -22,6 +22,14 @@ namespace RecetaSpawn.Domain.Service
         }
 
 
+		public List<TblUsuariosBO> Traer()  
+		{
+			List<TblUsuariosBO> datos = new List<TblUsuariosBO>();
+			datos = Metodo.BuscarUsuarios();
+			return datos;
+		}
+
+
 		public bool editar(object obj)
         {
 			bool final;
@@ -35,12 +43,7 @@ namespace RecetaSpawn.Domain.Service
 			return final;
         }
 
-		public bool buscar()
-        {
-			bool final;
-			final = Metodo.BuscarUsuarios();
-			return final;
-        }
+
 	}
 }
 

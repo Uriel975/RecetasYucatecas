@@ -7,7 +7,7 @@ namespace RecetaSpawn.Domain.DAO
 		SqlConnection con;
 		public SqlConnection establecerconexion()
 		{
-			string cadena = "SERVER=LAPTOP-LEDD0F1L\\SQLEXPRESS;Initial Catalog=ProyectoRecetas;Integrated Security=True";
+			string cadena = "SERVER=DESKTOP-27FSFUB\\SQLEXPRESS;Initial Catalog=ProyectoRecetas;Integrated Security=True";
 			con = new SqlConnection(cadena);
 			return con;
 		}

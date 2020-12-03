@@ -587,6 +587,7 @@
     <Content Include="Views\Admin\AdminView.cshtml" />
     <Content Include="Views\Receta\Ver.cshtml" />
     <Content Include="Views\Usuarios\AgregarUsuario.cshtml" />
+    <Content Include="Views\Usuarios\Ver.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
