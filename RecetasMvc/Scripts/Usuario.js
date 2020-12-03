@@ -39,7 +39,7 @@
                     Dialog.show("El campo 'Rol' es obligatorio", Dialog.type.error);
                     return;
                 }
-                /* [O-O] */
+
                 $.ajax({
                     url: Root + "Usuarios/New",
                     type: "POST",
@@ -49,7 +49,7 @@
                     },
                     success: function (response) {
                         if (response > 0) {
-                            Dialog.show("Nuevo Administrador Creado Con Exito", Dialog.type.success);
+                            Dialog.show("Nuevo Usuario Creado Con Exito", Dialog.type.success);
                             $(".sem-dialog").on("done", function () {
                                 location.reload(true);
 
@@ -61,65 +61,6 @@
                     }
                 });
             }
-            else {
-                $.ajax({
-                    url: Root + "Administrador/Update",
-                    type: "POST",
-                    data: { nombre: A_NAMEADM, correo: A_EMAIL, usuario: A_UNAME, id: Administrador.Objects.IDAdministrador },
-                    beforeSend: function () {
-                        Dialog.show("Actualizando datos", Dialog.type.progress);
-                    },
-                    success: function (response) {
-                        if (response > 0) {
-                            Dialog.show("Empleado actualizado correctamente", Dialog.type.success);
-                            $(".sem-dialog").on("done", function () {
-                                location.reload(true);
-                            });
-                        }
-                        else {
-                            Dialog.show("Ocurrió un error al actualizar, inténtelo de nuevo", Dialog.type.error);
-                        }
-                    }
-                });
-            }
         });
     },
-    evts: {
-        getAdministradorInfo: function (id, nombre, correo, usuario) {
-            Administrador.Objects.IDAdministrador = id;
-            $("#txtNombreAdm").val(nombre);
-            $("#txtCorreoAdm").val(correo);
-            $("#txtUsuarioAdm").val(usuario);
-            $("#mdlDetail").modal("show");
-            $("#employeeStr").text("Actualizar Empleado");
-            Dialog.hide();
-        },
-        updateStatus: function (id, status) {
-            if (status == "0") {
-                Dialog.show("¿Estás seguro que quiere Eliminar este Administrador?", Dialog.type.question);
-            }
-            else {
-                Dialog.show("¿Reactivar este Usuario?", Dialog.type.question);
-            }
-            $(".sem-dialog").on("done", function () {
-                $.ajax({
-                    url: Root + "Administrador/UpdateStatus",
-                    type: "POST",
-                    data: { id: id, estatus: status },
-                    beforeSend: function () {
-                        Dialog.show("Eliminando datos", Dialog.type.progress);
-                    },
-                    success: function (response) {
-                        if (response > 0) {
-                            location.reload(true);
-                        }
-                        else {
-                            Dialog.show("A Ocurrido Un Error, Intente De Nuevo", Dialog.type.error);
-                        }
-                    }
-                });
-            });
-        }
-    },
-
 }

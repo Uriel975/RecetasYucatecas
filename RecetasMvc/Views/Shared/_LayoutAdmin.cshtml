@@ -27,10 +27,10 @@
         <div class="wrapper ">
             <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
                 <!--
-            Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+                Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
-            Tip 2: you can also add an image using data-image tag
-        -->
+                Tip 2: you can also add an image using data-image tag
+            -->
                 <div class="logo">
                     <a href="http://www.creative-tim.com" class="simple-text logo-normal">
                         Recetas Yucatan
@@ -81,15 +81,15 @@
                             </a>
                         </li>
                         <!-- <li class="nav-item active-pro ">
-                    <a class="nav-link" href="./upgrade.html">
-                        <i class="material-icons">unarchive</i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li> -->
+                        <a class="nav-link" href="./upgrade.html">
+                            <i class="material-icons">unarchive</i>
+                            <p>Upgrade to PRO</p>
+                        </a>
+                    </li> -->
                     </ul>
                 </div>
             </div>
-            
+
             <div class="main-panel">
                 <!-- Navbar -->
                 <nav style="position:static" class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                 </nav>
-                <div class="col" >
+                <div>
                     @RenderBody()
                 </div>
             </div>
@@ -241,11 +241,11 @@
                         <a href="https://www.creative-tim.com/product/material-dashboard-dark" target="_blank" class="btn btn-primary btn-block">Free Download</a>
                     </li>
                     <!-- <li class="header-title">Want more components?</li>
-                    <li class="button-container">
-                        <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                          Get the pro version
-                        </a>
-                    </li> -->
+                <li class="button-container">
+                    <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
+                      Get the pro version
+                    </a>
+                </li> -->
                     <li class="button-container">
                         <a href="https://demos.creative-tim.com/material-dashboard-dark/docs/2.0/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
                             View Documentation
@@ -282,6 +282,15 @@
         <script src="~/Content/CssAdmin/assets/js/material-dashboard.js"></script>
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
         <script src="~/Content/CssAdmin/assets/demo/demo.js"></script>
+
+        <script src="~/Scripts/Usuario.js"></script>
+        <script>
+            $(function () {
+                Usuario.init();
+            });
+        </script>
+
+
         <script>
             $(document).ready(function () {
                 $().ready(function () {

@@ -18,63 +18,8 @@ namespace RecetaSpawn.Domain.DAO
 
 		//Vienes aqui, te posicionas sobre el nombre del metodo (Agregar), click derecho y crear pruebas unitarias
 
-		public int Agregar2(TblUsuariosBO Crear)
+		public int Agregar(TblUsuariosBO Crear)
 		{
-			
-			cmd.Connection = con2.establecerconexion();
-			con2.AbrirConexion();
-			string sql = "INSERT INTO TblUsuarios(Nombre, Apellido, Correo, Contraseña, Genero, Rol)" +
-			 "VALUES (@Nombre, @Apellido, @Correo, @Contraseña, @Genero, @Rol)";
-			cmd.Parameters.AddWithValue("@Nombre", Crear.Nombre);
-			cmd.Parameters.AddWithValue("@Apellido", Crear.Apellido);
-			cmd.Parameters.AddWithValue("@Correo", Crear.Correo);
-			cmd.Parameters.AddWithValue("@Contraseña", Crear.Contraseña);
-			cmd.Parameters.AddWithValue("@Genero", Crear.Genero);
-			cmd.Parameters.AddWithValue("@Rol", Crear.Rol);
-
-			cmd.CommandText = sql;
-			int i = cmd.ExecuteNonQuery();
-			cmd.Parameters.Clear();
-
-			if (i <= 0)
-			{
-				return 0;
-			}
-			return 1;
-		}
-		public int Editar2(object obj)
-		{
-			TblUsuariosBO Modificar = (TblUsuariosBO)obj;
-			cmd.Connection = con2.establecerconexion();
-			con2.AbrirConexion();
-			sql = "update TblUsuarios set Nombre = @Nombre, Apellido = @Apellido ,Correo = @Correo ,Contraseña = @Contraseña ,Genero = @Genero where IDUsuario = @IDUsuario";
-
-			cmd.Parameters.AddWithValue("@Nombre", Modificar.Nombre);
-			cmd.Parameters.AddWithValue("@Apellido", Modificar.Apellido);
-			cmd.Parameters.AddWithValue("@Correo", Modificar.Correo);
-			cmd.Parameters.AddWithValue("@Contraseña", Modificar.Contraseña);
-			cmd.Parameters.AddWithValue("@Genero", Modificar.Genero);
-			cmd.Parameters.AddWithValue("@IDUsuario", Modificar.IDUsuario);
-
-			cmd.CommandText = sql;
-			int Y = cmd.ExecuteNonQuery();
-
-			cmd.Parameters.Clear();
-			if (Y <= 0)
-			{
-				return 0;
-
-			}
-			return 1;
-		}
-
-
-
-		//int
-		public bool Agregar(object obj)
-		{
-			bool res = false;
-			TblUsuariosBO Crear = (TblUsuariosBO)obj;
 			cmd.Connection = con2.establecerconexion();
 			con2.AbrirConexion();
 			string sql = "INSERT INTO TblUsuarios(Nombre, Apellido, Correo, Contraseña, Genero, Rol)" +
@@ -92,12 +37,11 @@ namespace RecetaSpawn.Domain.DAO
 			cmd.Parameters.Clear();
 			if (x <= 0)
 			{
-				//return 0;
-				return res = false;
+				return 0;
 			}
-			//return 1;
-			return res = true;
+			return 1;
 		}
+
 		public bool Editar(object obj)
 		{
 			bool res = false;

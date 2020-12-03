@@ -13,32 +13,14 @@ namespace RecetaSpawn.Domain.Service
 
 		//int
 		TblUsuarioDAO Metodo = new TblUsuarioDAO();
-		public int Agregar2(TblUsuariosBO obj)
-		{
-			int final = 0;
-			final = Metodo.Agregar2(obj);
-			return final;
-		}
-		//tranquilo, asi se genera uno mas rapido
-
-		public int editar2(object obj)
-		{
-			int final;
-			final = Metodo.Editar2(obj);
-			return final;
-		}
-
-
-
-
-		public bool Agregar(object obj)
+		
+		public int Agregar(TblUsuariosBO obj)
         {
-			//int final = 0;
-			bool final;
+			int final=0;
 			final = Metodo.Agregar(obj);
 			return final;
         }
-		//tranquilo, asi se genera uno mas rapido
+
 
 		public bool editar(object obj)
         {

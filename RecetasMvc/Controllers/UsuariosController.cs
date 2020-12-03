@@ -41,7 +41,7 @@ namespace RecetasMvc.Controllers
             try
             {
                 int X = 0;
-                X = Total.Agregar2(Actualizacion);
+                X = Total.Agregar(Actualizacion);
                 return X;
             }
             catch(Exception ex)
