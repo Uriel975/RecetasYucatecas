@@ -16,9 +16,9 @@ namespace RecetaSpawn.Domain.DAO
 		Conexion con2 = new Conexion();
 		string sql;
 
-		public List<TblReceta> ListarTablaReceta()
+		public List<TblRecetaBO> ListarTablaReceta()
 		{
-			List<TblReceta> lista = new List<TblReceta>();
+			List<TblRecetaBO> lista = new List<TblRecetaBO>();
 			sql = "select * from TblReceta";
 			SqlDataAdapter da = new SqlDataAdapter(sql, con2.establecerconexion());
 			DataTable tabla = new DataTable();
@@ -27,7 +27,7 @@ namespace RecetaSpawn.Domain.DAO
 			{
 				foreach (DataRow row in tabla.Rows)
 				{
-					TblReceta obj = new TblReceta();
+					TblRecetaBO obj = new TblRecetaBO();
 					obj.ID_RECETA = int.Parse(row["ID_Recetas"].ToString());
 					obj.RECETA = (row["Receta"]).ToString();
 					obj.TIEMPO = (row["Tiempo"]).ToString();
@@ -39,19 +39,23 @@ namespace RecetaSpawn.Domain.DAO
 			return lista;
 		}
 
-		public int Eliminar(int id, int status)
+		public int Agregar(TblRecetaBO Crear)
 		{
 			cmd.Connection = con2.establecerconexion();
 			con2.AbrirConexion();
-			sql = "UPDATE Recetw SET Estatus = @Estatus WHERE IDAdmin = @IDAdmin;";
-			cmd.Parameters.AddWithValue("@Estatus", status);
-			cmd.Parameters.AddWithValue("@IDAdmin", id);
+			string sql = "INSERT INTO TblReceta(Receta, Tiempo, Ingredientes, Preparacion)" +
+						 "VALUES (@Receta, @Tiempo, @Ingredientes, @Preparacion)";
+			cmd.Parameters.AddWithValue("@Receta", Crear.RECETA);
+			cmd.Parameters.AddWithValue("@Tiempo", Crear.TIEMPO);
+			cmd.Parameters.AddWithValue("@Ingredientes", Crear.INGREDIENTES);
+			cmd.Parameters.AddWithValue("@Preparacion", Crear.PREPARACION);
+
+
 			cmd.CommandText = sql;
+			int x = cmd.ExecuteNonQuery();
 
-			int i = cmd.ExecuteNonQuery();
 			cmd.Parameters.Clear();
-
-			if (i <= 0)
+			if (x <= 0)
 			{
 				return 0;
 			}

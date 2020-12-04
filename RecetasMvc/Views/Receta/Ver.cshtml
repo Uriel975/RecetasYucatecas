@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Ver";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    var Receta = (List<RecetaSpawn.Domain.BO.TblReceta>)ViewBag.RecetaList;
+    var Receta = (List<RecetaSpawn.Domain.BO.TblRecetaBO>)ViewBag.RecetaList;
 }
 
 
@@ -30,7 +30,7 @@
 
                     <tbody>
 
-                        @foreach (RecetaSpawn.Domain.BO.TblReceta item in Receta)
+                        @foreach (RecetaSpawn.Domain.BO.TblRecetaBO item in Receta)
                         {
                             <tr>
                                 <td style="display:none">@item.ID_RECETA</td>

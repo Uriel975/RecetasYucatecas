@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RecetaSpawn.Domain.BO
 {
-    public class TblReceta
+    public class TblRecetaBO
     {
 
         int ID_Recetas;

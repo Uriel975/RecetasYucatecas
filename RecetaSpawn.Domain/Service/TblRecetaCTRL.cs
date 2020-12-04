@@ -12,18 +12,20 @@ namespace RecetaSpawn.Domain.Service
 	public class TblRecetaCTRL
     {
 		TblRecetaDAO metodo = new TblRecetaDAO();
-		public List<TblReceta> TraerReceta()
+		public List<TblRecetaBO> TraerReceta()
         {
-			List<TblReceta> data = new List<TblReceta>();
+			List<TblRecetaBO> data = new List<TblRecetaBO>();
 			data = metodo.ListarTablaReceta();
 			return data;
         }
 
-		public int Baja(int id, int status)
+		public int Agregar(TblRecetaBO obj)
 		{
-			int resultado = 0;
-			resultado = metodo.Eliminar(id, status);
-			return resultado;
+			int final = 0;
+			final = metodo.Agregar(obj);
+			return final;
 		}
+		
+
 	}
 }

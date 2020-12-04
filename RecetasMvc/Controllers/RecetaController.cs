@@ -1,4 +1,6 @@
-﻿using RecetaSpawn.Domain.Service;
+﻿using RecetaSpawn.Domain.BO;
+using RecetaSpawn.Domain.Service;
+using System;
 using System.Web.Mvc;
 
 namespace RecetasMvc.Controllers
@@ -9,6 +11,7 @@ namespace RecetasMvc.Controllers
         // == Seria para cualquier cosas que no sea valor, 'Texto' == 'Texto' || VAlor == null;
         // GET: Receta
         TblRecetaCTRL Receta = new TblRecetaCTRL();
+
         [HttpGet]
         public ActionResult RecetasEdit(int id=0)
         {
@@ -22,6 +25,38 @@ namespace RecetasMvc.Controllers
             return View();
         }
 
+        public ActionResult Agregar()
+        {
+            
+            return View();
+        }
+
+        public int AgregarReceta()
+        {
+            TblRecetaBO Actualizacion = new TblRecetaBO();
+            string receta = Request.Form.Get("RECETA");
+            string tiempo = Request.Form.Get("TIEMPO");
+            string ingredientes = Request.Form.Get("INGREDIENTES");
+            string preparacion = Request.Form.Get("PREPARACION");
+           
+            Actualizacion.RECETA = receta;
+            Actualizacion.TIEMPO = tiempo;
+            Actualizacion.INGREDIENTES = ingredientes;
+            Actualizacion.PREPARACION = preparacion;
+
+
+            try
+            {
+                int X = 0;
+                X = Receta.Agregar(Actualizacion);
+                return X;
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+            //Quien sabe porque marca asi, no deberia hacerlo, ERES UN MASTER O.OAJJAJAJAJAJ TU ME ENSEÑASTE CHEES XD, qUE Considerado
+        }
 
 
     }
